@@ -6,7 +6,7 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:45:38 by akonstan          #+#    #+#             */
-/*   Updated: 2026/10/21 18:18:47 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/10/22 15:13:15 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void handleChar(double& num){
 		std::cout << "char: Non displayable\n";
 }
 
-static void handleInt(double& num){
+static void handleInt(double num){
 	if (num < static_cast<double>(std::numeric_limits<int>::min())
 		|| num > static_cast<double>(std::numeric_limits<int>::max()))
 		std::cout << "int: impossible\n";
@@ -51,7 +51,7 @@ static void handleInt(double& num){
 		std::cout << "int: " << static_cast<int>(num) << "\n";
 }
 
-static void handleFloat(double& num){
+static void handleFloat(double num){
 	float fl_num = static_cast<float>(num);
 
 	std::cout << "float: " << fl_num;
@@ -60,7 +60,7 @@ static void handleFloat(double& num){
 	std::cout << "f\n";
 }
 
-static void handleDouble(double& num){
+static void handleDouble(double num){
 
 	std::cout << "double: " << num;
 	if (num - static_cast<int>(num) == 0)
@@ -71,11 +71,16 @@ static void handleDouble(double& num){
 void ScalarConverter::convert(std::string& input){
 	
 	char* end = NULL;
+	double num = 0.0;
 
-	double num = strtod(input.c_str(), &end);
-	if (*end != '\0'){
-		std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible\n";
-		return ;
+	if (input.length() == 1)
+		num = static_cast<double>(input[0]);
+	else{
+		num = strtod(input.c_str(), &end);
+		if (*end != '\0'){
+			std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible\n";
+			return ;
+		}
 	}
 	handleChar(num);
 	handleInt(num);
