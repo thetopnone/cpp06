@@ -6,7 +6,7 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:52:46 by akonstan          #+#    #+#             */
-/*   Updated: 2026/10/30 18:17:51 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/05 16:42:53 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@ Base* generate(void){
 	switch (rand() % 3){
 		case 0:
 			return (new A);
-			break;
 		case 1:
 			return (new B);
-			break;
 		case 2:
 			return (new C);
-			break;
 	}
 	return NULL;
 }
