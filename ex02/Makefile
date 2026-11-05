@@ -2,7 +2,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Base.cpp A.cpp B.cpp C.cpp main.cpp
 OBJS = $(patsubst %.cpp, objs/%.o, $(SRCS))
-NAME = ex02
+NAME = identify_obj
 
 all: $(NAME)
 

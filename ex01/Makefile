@@ -2,7 +2,7 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRCS = Data.cpp Serializer.cpp main.cpp
 OBJS = $(patsubst %.cpp, objs/%.o, $(SRCS))
-NAME = ex01
+NAME = serializer
 
 all: $(NAME)
 

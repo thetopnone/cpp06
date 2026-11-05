@@ -6,7 +6,7 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:45:35 by akonstan          #+#    #+#             */
-/*   Updated: 2026/10/21 16:34:09 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/05 14:45:16 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@
 
 class ScalarConverter
 {
-	public:
+	private:
 		ScalarConverter();
 		ScalarConverter(ScalarConverter const&);
+	public:
 		ScalarConverter& operator=(ScalarConverter const&);
 		~ScalarConverter();
 
