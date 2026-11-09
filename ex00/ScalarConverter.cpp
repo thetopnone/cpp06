@@ -6,7 +6,7 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:45:38 by akonstan          #+#    #+#             */
-/*   Updated: 2026/11/09 15:05:40 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/09 15:13:16 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ ScalarConverter::~ScalarConverter()
 static void handleChar(double& num){
 	unsigned char c;
 
+	if (num < static_cast<double>(std::numeric_limits<char>::min())
+		|| num > static_cast<double>(std::numeric_limits<char>::max())
+		|| std::isnan(static_cast<float>(num)) == true){
+		std::cout << "char: impossible\n";
+		return;
+	}
 	c = static_cast<unsigned char>(num);
 
 	if (std::isprint(c) != 0)
