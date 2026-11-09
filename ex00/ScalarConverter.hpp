@@ -6,7 +6,7 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:45:35 by akonstan          #+#    #+#             */
-/*   Updated: 2026/11/05 14:45:16 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/09 15:05:02 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define SCALARCONVERTER_HPP
 # include <string>
 # include <iostream>
+# include <cctype>
+# include <cmath>
+# include <cstdlib>
+# include <limits>
 
 class ScalarConverter
 {

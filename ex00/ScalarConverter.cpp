@@ -6,14 +6,12 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 17:45:38 by akonstan          #+#    #+#             */
-/*   Updated: 2026/11/05 12:51:46 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/09 15:05:40 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
-#include <cctype>
-#include <cstdlib>
-#include <limits>
+
 
 ScalarConverter::ScalarConverter()
 {}
@@ -45,7 +43,8 @@ static void handleChar(double& num){
 
 static void handleInt(double num){
 	if (num < static_cast<double>(std::numeric_limits<int>::min())
-		|| num > static_cast<double>(std::numeric_limits<int>::max()))
+		|| num > static_cast<double>(std::numeric_limits<int>::max())
+		|| std::isnan(static_cast<float>(num)) == true)
 		std::cout << "int: impossible\n";
 	else
 		std::cout << "int: " << static_cast<int>(num) << "\n";
@@ -77,7 +76,7 @@ void ScalarConverter::convert(std::string& input){
 		num = static_cast<double>(input[0]);
 	else{
 		num = strtod(input.c_str(), &end);
-		if (*end != '\0'){
+		if (*end != '\0' && (*end != 'f' || *(end + 1) != '\0')){	
 			std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible\n";
 			return ;
 		}
