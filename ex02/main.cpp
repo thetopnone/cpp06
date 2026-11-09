@@ -6,7 +6,7 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 16:52:46 by akonstan          #+#    #+#             */
-/*   Updated: 2026/11/05 16:42:53 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/09 16:07:09 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@
 #include <iostream>
 
 Base* generate(void){
-	srand(time(NULL));
+	static bool is_seeded = false;
+	
+	if (is_seeded == false){
+		srand(time(NULL));
+		is_seeded = true;
+	}
 
 	std::cout << "Generate called\n";
 	switch (rand() % 3){
